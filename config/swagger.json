@@ -1,0 +1,3300 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "version": ""
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "api/activity/": {
+      "get": {
+        "summary": "获取 基础API",
+        "operationId": "GetActivity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": " ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      },
+      "delete": {
+        "summary": "删除 基础API",
+        "operationId": "DelActivity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "删除请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelActivityReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      },
+      "post": {
+        "summary": "添加 基础API",
+        "operationId": "AddActivity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "添加请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddActivityReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      },
+      "put": {
+        "summary": "更新 基础API",
+        "operationId": "PutActivity",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "更新请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutActivityReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      }
+    },
+    "api/activity/enums": {
+      "get": {
+        "summary": "获取枚举列表 基础API",
+        "operationId": "GetActivityEnums",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parentId",
+            "description": " 父级ID",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      }
+    },
+    "api/activity/list": {
+      "get": {
+        "summary": "获取列表 基础API",
+        "operationId": "GetActivityList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": " 页面容量，默认20，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "20"
+          },
+          {
+            "name": "page",
+            "description": " 当前页码，默认1，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "current",
+            "description": " 当前页码，默认1，用于对接umijs，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "keyword",
+            "description": " 关键词，可选",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "uuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "activity"
+        ]
+      }
+    },
+    "api/adminer/": {
+      "get": {
+        "summary": "获取 基础API",
+        "operationId": "GetAdminer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": " ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      },
+      "delete": {
+        "summary": "删除 基础API",
+        "operationId": "DelAdminer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "删除请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelAdminerReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      },
+      "post": {
+        "summary": "添加 基础API",
+        "operationId": "AddAdminer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "添加请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddAdminerReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      },
+      "put": {
+        "summary": "更新 基础API",
+        "operationId": "PutAdminer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "更新请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutAdminerReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/adminer/enums": {
+      "get": {
+        "summary": "获取枚举列表 基础API",
+        "operationId": "GetAdminerEnums",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parentId",
+            "description": " 父级ID",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/adminer/list": {
+      "get": {
+        "summary": "获取列表 基础API",
+        "operationId": "GetAdminerList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": " 页面容量，默认20，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "20"
+          },
+          {
+            "name": "page",
+            "description": " 当前页码，默认1，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "current",
+            "description": " 当前页码，默认1，用于对接umijs，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "keyword",
+            "description": " 关键词，可选",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "access",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "isSuper",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/awards/": {
+      "get": {
+        "summary": "获取 基础API",
+        "operationId": "GetAwards",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": " ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      },
+      "delete": {
+        "summary": "删除 基础API",
+        "operationId": "DelAwards",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "删除请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelAwardsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      },
+      "post": {
+        "summary": "添加 基础API",
+        "operationId": "AddAwards",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "添加请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddAwardsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      },
+      "put": {
+        "summary": "更新 基础API",
+        "operationId": "PutAwards",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "更新请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutAwardsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      }
+    },
+    "api/awards/enums": {
+      "get": {
+        "summary": "获取枚举列表 基础API",
+        "operationId": "GetAwardsEnums",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parentId",
+            "description": " 父级ID",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      }
+    },
+    "api/awards/list": {
+      "get": {
+        "summary": "获取列表 基础API",
+        "operationId": "GetAwardsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": " 页面容量，默认20，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "20"
+          },
+          {
+            "name": "page",
+            "description": " 当前页码，默认1，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "current",
+            "description": " 当前页码，默认1，用于对接umijs，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "keyword",
+            "description": " 关键词，可选",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "activityId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "uuid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "grade",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "price",
+            "description": " 奖品价格",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double",
+            "default": "-1"
+          },
+          {
+            "name": "prob",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "quantity",
+            "description": " 总数量",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "count",
+            "description": " 已抽数量",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "isWin",
+            "description": " 是否中奖",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      },
+      "post": {
+        "summary": "获取某活动的奖项信息",
+        "operationId": "GetAwardsListByActivityUuid",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " The content in this block will not be updated, 此区块内的内容不会被更新,[custom struct start]",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetAwardsListByActivityUuidReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      }
+    },
+    "api/awards/selectAwardsByIds": {
+      "post": {
+        "summary": "筛选by id list",
+        "operationId": "SelectAwardsByIds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SelectAwardsByIdsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "awards"
+        ]
+      }
+    },
+    "api/currentAdminer": {
+      "get": {
+        "summary": "获取当前信息",
+        "operationId": "CurrentAdminer",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/ip": {
+      "get": {
+        "summary": "获取ip",
+        "operationId": "GetRemoteIp",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "luckydraw-api"
+        ]
+      }
+    },
+    "api/login": {
+      "post": {
+        "summary": "管理员登录",
+        "operationId": "AdminerLogin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " The content in this block will not be updated, 此区块内的内容不会被更新,[custom struct start]",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AdminerLoginReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/logout": {
+      "get": {
+        "summary": "退出登录",
+        "operationId": "AdminerLogout",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "adminer"
+        ]
+      }
+    },
+    "api/luckydraw": {
+      "post": {
+        "summary": "抽奖接口",
+        "operationId": "Luckydraw",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/luckydrawReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "luckydraw-api"
+        ]
+      }
+    },
+    "api/math-captcha": {
+      "post": {
+        "summary": "获取验证码",
+        "operationId": "GetMathCaptcha",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "图片验证码请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CaptchaReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "luckydraw-api"
+        ]
+      }
+    },
+    "api/test": {
+      "get": {
+        "summary": "测试",
+        "operationId": "Test",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "requestBody": {},
+        "tags": [
+          "luckydraw-api"
+        ]
+      }
+    },
+    "api/users/": {
+      "get": {
+        "summary": "获取 基础API",
+        "operationId": "GetUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": " ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      },
+      "delete": {
+        "summary": "删除 基础API",
+        "operationId": "DelUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "删除请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelUsersReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      },
+      "post": {
+        "summary": "添加 基础API",
+        "operationId": "AddUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "添加请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddUsersReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      },
+      "put": {
+        "summary": "更新 基础API",
+        "operationId": "PutUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "更新请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutUsersReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/users/currentUser": {
+      "post": {
+        "summary": "当前用户",
+        "operationId": "CurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/currentUserReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/users/enums": {
+      "get": {
+        "summary": "获取枚举列表 基础API",
+        "operationId": "GetUsersEnums",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parentId",
+            "description": " 父级ID",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/users/list": {
+      "get": {
+        "summary": "获取列表 基础API",
+        "operationId": "GetUsersList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": " 页面容量，默认20，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "20"
+          },
+          {
+            "name": "page",
+            "description": " 当前页码，默认1，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "current",
+            "description": " 当前页码，默认1，用于对接umijs，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "keyword",
+            "description": " 关键词，可选",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "activityId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "availableAwards",
+            "description": " 指定其可抽中的奖品",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "passport",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "count",
+            "description": " 抽獎次數",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "total",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/users/login": {
+      "post": {
+        "summary": "用户登录",
+        "operationId": "UserLogin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserLoginReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/users/register": {
+      "post": {
+        "summary": "用户注册",
+        "operationId": "UserRegister",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " The content in this block will not be updated, 此区块内的内容不会被更新,[custom struct start]",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserRegisterReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "api/winningRecords/": {
+      "get": {
+        "summary": "获取 基础API",
+        "operationId": "GetWinningRecords",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": " ID",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      },
+      "delete": {
+        "summary": "删除 基础API",
+        "operationId": "DelWinningRecords",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "删除请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DelWinningRecordsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      },
+      "post": {
+        "summary": "添加 基础API",
+        "operationId": "AddWinningRecords",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "添加请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddWinningRecordsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      },
+      "put": {
+        "summary": "更新 基础API",
+        "operationId": "PutWinningRecords",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "更新请求",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutWinningRecordsReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      }
+    },
+    "api/winningRecords/enums": {
+      "get": {
+        "summary": "获取枚举列表 基础API",
+        "operationId": "GetWinningRecordsEnums",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "parentId",
+            "description": " 父级ID",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      }
+    },
+    "api/winningRecords/list": {
+      "get": {
+        "summary": "获取列表 基础API",
+        "operationId": "GetWinningRecordsList",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "pageSize",
+            "description": " 页面容量，默认20，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "20"
+          },
+          {
+            "name": "page",
+            "description": " 当前页码，默认1，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "current",
+            "description": " 当前页码，默认1，用于对接umijs，可选",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1"
+          },
+          {
+            "name": "keyword",
+            "description": " 关键词，可选",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "awardId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "activityId",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "-1"
+          },
+          {
+            "name": "ip",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "platform",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      }
+    },
+    "api/winningRecords/query": {
+      "post": {
+        "summary": "中奖记录查询接口",
+        "operationId": "Query",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/BaseResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " The content in this block will not be updated, 此区块内的内容不会被更新,[custom struct start]",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/queryReq"
+            }
+          }
+        ],
+        "requestBody": {},
+        "tags": [
+          "winningRecords"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Activity",
+      "required": [
+        "id",
+        "uuid",
+        "name",
+        "status"
+      ]
+    },
+    "AddActivityReq": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AddActivityReq",
+      "required": [
+        "name",
+        "status"
+      ]
+    },
+    "AddAdminerReq": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "isSuper": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AddAdminerReq",
+      "required": [
+        "username",
+        "password",
+        "access",
+        "isSuper"
+      ]
+    },
+    "AddAwardsReq": {
+      "type": "object",
+      "properties": {
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "description": " 奖品价格"
+        },
+        "prob": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 总数量"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 已抽数量"
+        },
+        "isWin": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 是否中奖"
+        }
+      },
+      "title": "AddAwardsReq",
+      "required": [
+        "activityId",
+        "grade",
+        "name",
+        "image",
+        "price",
+        "prob",
+        "quantity",
+        "count",
+        "isWin"
+      ]
+    },
+    "AddUsersReq": {
+      "type": "object",
+      "properties": {
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "availableAwards": {
+          "type": "string",
+          "description": " 指定其可抽中的奖品"
+        },
+        "name": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 抽獎次數"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AddUsersReq",
+      "required": [
+        "activityId",
+        "availableAwards",
+        "name",
+        "passport",
+        "count",
+        "total"
+      ]
+    },
+    "AddWinningRecordsReq": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "awardId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        }
+      },
+      "title": "AddWinningRecordsReq",
+      "required": [
+        "userId",
+        "awardId",
+        "activityId",
+        "ip",
+        "platform"
+      ]
+    },
+    "Adminer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "isSuper": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Adminer",
+      "required": [
+        "id",
+        "username",
+        "password",
+        "access",
+        "isSuper"
+      ]
+    },
+    "AdminerLoginReq": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "autoLogin": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "captchaId": {
+          "type": "string"
+        },
+        "solution": {
+          "type": "string"
+        }
+      },
+      "title": "AdminerLoginReq",
+      "required": [
+        "username",
+        "password",
+        "autoLogin",
+        "captchaId",
+        "solution"
+      ]
+    },
+    "Awards": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "description": " 奖品价格"
+        },
+        "prob": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 总数量"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 已抽数量"
+        },
+        "isWin": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 是否中奖"
+        }
+      },
+      "title": "Awards",
+      "required": [
+        "id",
+        "activityId",
+        "uuid",
+        "grade",
+        "name",
+        "image",
+        "price",
+        "prob",
+        "quantity",
+        "count",
+        "isWin"
+      ]
+    },
+    "BaseResp": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "boolean",
+          "format": "boolean",
+          "description": " 响应状态"
+        },
+        "success": {
+          "type": "boolean",
+          "format": "boolean",
+          "description": " 响应状态，用于对接umijs"
+        },
+        "message": {
+          "type": "string",
+          "description": " 给予的提示信息"
+        },
+        "data": {
+          "type": "object",
+          "description": " 【选填】响应的业务数据"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】数据总个数"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】单页数量"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】当前页码，用于对接umijs"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】当前页码"
+        },
+        "totalPage": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】自增项，总共有多少页，根据前端的pageSize来计算"
+        },
+        "errorCode": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】错误类型代码：400错误请求，401未授权，500服务器内部错误，200成功"
+        },
+        "errorMessage": {
+          "type": "string",
+          "description": " 【选填】向用户显示消息"
+        },
+        "traceMessage": {
+          "type": "string",
+          "description": " 【选填】调试错误信息，请勿在生产环境下使用，可有可无"
+        },
+        "showType": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 【选填】错误显示类型：0.不提示错误;1.警告信息提示；2.错误信息提示；4.通知提示；9.页面跳转"
+        },
+        "traceId": {
+          "type": "string",
+          "description": " 【选填】方便后端故障排除：唯一的请求ID"
+        },
+        "host": {
+          "type": "string",
+          "description": " 【选填】方便后端故障排除：当前访问服务器的主机"
+        }
+      },
+      "title": "BaseResp",
+      "required": [
+        "status",
+        "success",
+        "message",
+        "data",
+        "total",
+        "pageSize",
+        "current",
+        "page",
+        "totalPage",
+        "errorCode",
+        "errorMessage",
+        "traceMessage",
+        "showType",
+        "traceId",
+        "host"
+      ]
+    },
+    "ByIdReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 主键"
+        }
+      },
+      "title": "ByIdReq",
+      "required": [
+        "id"
+      ]
+    },
+    "CaptchaBgColor": {
+      "type": "object",
+      "properties": {
+        "R": {
+          "$ref": "#/definitions/uint8",
+          "default": "254"
+        },
+        "G": {
+          "$ref": "#/definitions/uint8",
+          "default": "254"
+        },
+        "B": {
+          "$ref": "#/definitions/uint8",
+          "default": "254"
+        },
+        "A": {
+          "$ref": "#/definitions/uint8",
+          "default": "254"
+        }
+      },
+      "title": "CaptchaBgColor",
+      "required": [
+        "R",
+        "G",
+        "B",
+        "A"
+      ]
+    },
+    "CaptchaInfo": {
+      "type": "object",
+      "properties": {
+        "captchaId": {
+          "type": "string"
+        },
+        "base64Image": {
+          "type": "string"
+        }
+      },
+      "title": "CaptchaInfo",
+      "required": [
+        "captchaId",
+        "base64Image"
+      ]
+    },
+    "CaptchaReq": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int32",
+          "default": "60"
+        },
+        "width": {
+          "type": "integer",
+          "format": "int32",
+          "default": "200"
+        },
+        "BgColor": {
+          "$ref": "#/definitions/CaptchaBgColor"
+        }
+      },
+      "title": "CaptchaReq",
+      "required": [
+        "height",
+        "width",
+        "BgColor"
+      ]
+    },
+    "CaptchaResp": {
+      "type": "object",
+      "properties": {
+        "captchaId": {
+          "type": "string",
+          "description": " captcha id"
+        },
+        "expiresAt": {
+          "type": "integer",
+          "format": "int64",
+          "description": " expires time"
+        }
+      },
+      "title": "CaptchaResp",
+      "required": [
+        "captchaId",
+        "expiresAt"
+      ]
+    },
+    "DelActivityReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "DelActivityReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DelAdminerReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "DelAdminerReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DelAwardsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "DelAwardsReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DelUsersReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "DelUsersReq",
+      "required": [
+        "id"
+      ]
+    },
+    "DelWinningRecordsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "DelWinningRecordsReq",
+      "required": [
+        "id"
+      ]
+    },
+    "Enum": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "object",
+          "description": " 名"
+        },
+        "value": {
+          "type": "object",
+          "description": " 值"
+        }
+      },
+      "title": "Enum",
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "Enums": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Enum"
+          },
+          "description": " 枚举列表数据"
+        }
+      },
+      "title": "Enums",
+      "required": [
+        "list"
+      ]
+    },
+    "GetActivityEnumsReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 父级ID"
+        }
+      },
+      "title": "GetActivityEnumsReq",
+      "required": [
+        "parentId"
+      ]
+    },
+    "GetActivityListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        }
+      },
+      "title": "GetActivityListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current",
+        "id",
+        "status"
+      ]
+    },
+    "GetActivityReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "GetActivityReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetAdminerEnumsReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 父级ID"
+        }
+      },
+      "title": "GetAdminerEnumsReq",
+      "required": [
+        "parentId"
+      ]
+    },
+    "GetAdminerListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "isSuper": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        }
+      },
+      "title": "GetAdminerListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current",
+        "id",
+        "isSuper"
+      ]
+    },
+    "GetAdminerReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "GetAdminerReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetAwardsEnumsReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 父级ID"
+        }
+      },
+      "title": "GetAwardsEnumsReq",
+      "required": [
+        "parentId"
+      ]
+    },
+    "GetAwardsListByActivityUuidReq": {
+      "type": "object",
+      "properties": {
+        "activityUuid": {
+          "type": "string"
+        }
+      },
+      "title": "GetAwardsListByActivityUuidReq",
+      "required": [
+        "activityUuid"
+      ]
+    },
+    "GetAwardsListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "default": "-1",
+          "description": " 奖品价格"
+        },
+        "prob": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 总数量"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 已抽数量"
+        },
+        "isWin": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 是否中奖"
+        }
+      },
+      "title": "GetAwardsListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current",
+        "id",
+        "activityId",
+        "price",
+        "prob",
+        "quantity",
+        "count",
+        "isWin"
+      ]
+    },
+    "GetAwardsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "GetAwardsReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetUsersEnumsReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 父级ID"
+        }
+      },
+      "title": "GetUsersEnumsReq",
+      "required": [
+        "parentId"
+      ]
+    },
+    "GetUsersListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "availableAwards": {
+          "type": "string",
+          "description": " 指定其可抽中的奖品"
+        },
+        "name": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 抽獎次數"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        }
+      },
+      "title": "GetUsersListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current",
+        "id",
+        "activityId",
+        "count",
+        "total"
+      ]
+    },
+    "GetUsersReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "GetUsersReq",
+      "required": [
+        "id"
+      ]
+    },
+    "GetWinningRecordsEnumsReq": {
+      "type": "object",
+      "properties": {
+        "parentId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1",
+          "description": " 父级ID"
+        }
+      },
+      "title": "GetWinningRecordsEnumsReq",
+      "required": [
+        "parentId"
+      ]
+    },
+    "GetWinningRecordsListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "awardId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64",
+          "default": "-1"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        }
+      },
+      "title": "GetWinningRecordsListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current",
+        "id",
+        "userId",
+        "awardId",
+        "activityId"
+      ]
+    },
+    "GetWinningRecordsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": " ID"
+        }
+      },
+      "title": "GetWinningRecordsReq",
+      "required": [
+        "id"
+      ]
+    },
+    "JwtToken": {
+      "type": "object",
+      "properties": {
+        "accessToken": {
+          "type": "string",
+          "description": " token"
+        },
+        "accessExpire": {
+          "type": "integer",
+          "format": "int64",
+          "description": " expire"
+        },
+        "refreshAfter": {
+          "type": "integer",
+          "format": "int64",
+          "description": " refresh at"
+        }
+      },
+      "title": "JwtToken",
+      "required": [
+        "accessToken",
+        "accessExpire",
+        "refreshAfter"
+      ]
+    },
+    "ListReq": {
+      "type": "object",
+      "properties": {
+        "pageSize": {
+          "type": "integer",
+          "format": "int64",
+          "default": "20",
+          "description": " 页面容量，默认20，可选"
+        },
+        "page": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，可选"
+        },
+        "current": {
+          "type": "integer",
+          "format": "int64",
+          "default": "1",
+          "description": " 当前页码，默认1，用于对接umijs，可选"
+        },
+        "keyword": {
+          "type": "string",
+          "description": " 关键词，可选"
+        }
+      },
+      "title": "ListReq",
+      "required": [
+        "pageSize",
+        "page",
+        "current"
+      ]
+    },
+    "NilReq": {
+      "type": "object",
+      "title": "NilReq"
+    },
+    "NilResp": {
+      "type": "object",
+      "title": "NilResp"
+    },
+    "Option": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": " 名"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 值"
+        }
+      },
+      "title": "Option",
+      "required": [
+        "title",
+        "value"
+      ]
+    },
+    "Options": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Option"
+          },
+          "description": " 选项列表数据"
+        }
+      },
+      "title": "Options",
+      "required": [
+        "list"
+      ]
+    },
+    "PublicAwards": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double"
+        },
+        "is_win": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      },
+      "title": "PublicAwards",
+      "required": [
+        "id",
+        "uuid",
+        "grade",
+        "name",
+        "image",
+        "price",
+        "is_win"
+      ]
+    },
+    "PublicUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activity_id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 抽獎次數"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PublicUser",
+      "required": [
+        "id",
+        "activity_id",
+        "passport",
+        "count",
+        "total"
+      ]
+    },
+    "PutActivityReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PutActivityReq",
+      "required": [
+        "id",
+        "uuid",
+        "name",
+        "status"
+      ]
+    },
+    "PutAdminerReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "isSuper": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PutAdminerReq",
+      "required": [
+        "id",
+        "username",
+        "password",
+        "access",
+        "isSuper"
+      ]
+    },
+    "PutAwardsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "grade": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "description": " 奖品价格"
+        },
+        "prob": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 总数量"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 已抽数量"
+        },
+        "isWin": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 是否中奖"
+        }
+      },
+      "title": "PutAwardsReq",
+      "required": [
+        "id",
+        "activityId",
+        "uuid",
+        "grade",
+        "name",
+        "image",
+        "price",
+        "prob",
+        "quantity",
+        "count",
+        "isWin"
+      ]
+    },
+    "PutUsersReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "availableAwards": {
+          "type": "string",
+          "description": " 指定其可抽中的奖品"
+        },
+        "name": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 抽獎次數"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "PutUsersReq",
+      "required": [
+        "id",
+        "activityId",
+        "availableAwards",
+        "name",
+        "passport",
+        "count",
+        "total"
+      ]
+    },
+    "PutWinningRecordsReq": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "awardId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        }
+      },
+      "title": "PutWinningRecordsReq",
+      "required": [
+        "id",
+        "userId",
+        "awardId",
+        "activityId",
+        "ip",
+        "platform"
+      ]
+    },
+    "Resp": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "object",
+          "description": " 响应数据"
+        }
+      },
+      "title": "Resp",
+      "required": [
+        "body"
+      ]
+    },
+    "SelectAwardsByIdsReq": {
+      "type": "object",
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "SelectAwardsByIdsReq",
+      "required": [
+        "ids"
+      ]
+    },
+    "TreeOption": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": " 名"
+        },
+        "value": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 值"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TreeOption"
+          },
+          "description": " 子集"
+        }
+      },
+      "title": "TreeOption",
+      "required": [
+        "title",
+        "value"
+      ]
+    },
+    "TreeOptions": {
+      "type": "object",
+      "properties": {
+        "list": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TreeOption"
+          },
+          "description": " 树形选项列表数据"
+        }
+      },
+      "title": "TreeOptions",
+      "required": [
+        "list"
+      ]
+    },
+    "UserDetail": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/Users"
+        },
+        "activity": {
+          "$ref": "#/definitions/Activity"
+        },
+        "availableAwards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Awards"
+          }
+        }
+      },
+      "title": "UserDetail"
+    },
+    "UserLoginReq": {
+      "type": "object",
+      "properties": {
+        "passport": {
+          "type": "string",
+          "description": "用户凭证"
+        },
+        "activityUuid": {
+          "type": "string",
+          "description": "活动凭证"
+        }
+      },
+      "title": "UserLoginReq",
+      "required": [
+        "passport",
+        "activityUuid"
+      ]
+    },
+    "UserRegisterReq": {
+      "type": "object",
+      "properties": {
+        "userPassport": {
+          "type": "string",
+          "description": "用户凭证"
+        },
+        "activityUuid": {
+          "type": "string",
+          "description": "活动凭证"
+        },
+        "secretKey": {
+          "type": "string",
+          "description": "密钥"
+        }
+      },
+      "title": "UserRegisterReq",
+      "required": [
+        "userPassport",
+        "activityUuid",
+        "secretKey"
+      ]
+    },
+    "Users": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "availableAwards": {
+          "type": "string",
+          "description": " 指定其可抽中的奖品"
+        },
+        "name": {
+          "type": "string"
+        },
+        "passport": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64",
+          "description": " 抽獎次數"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Users",
+      "required": [
+        "id",
+        "activityId",
+        "availableAwards",
+        "name",
+        "passport",
+        "count",
+        "total"
+      ]
+    },
+    "WinningRecords": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "awardId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "activityId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ip": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        }
+      },
+      "title": "WinningRecords",
+      "required": [
+        "id",
+        "userId",
+        "awardId",
+        "activityId",
+        "ip",
+        "platform"
+      ]
+    },
+    "WinningRecordsDetail": {
+      "type": "object",
+      "properties": {
+        "winningRecord": {
+          "$ref": "#/definitions/WinningRecords"
+        },
+        "award": {
+          "$ref": "#/definitions/Awards"
+        },
+        "user": {
+          "$ref": "#/definitions/Users"
+        },
+        "activity": {
+          "$ref": "#/definitions/Activity"
+        }
+      },
+      "title": "WinningRecordsDetail"
+    },
+    "WinningRecordsInfo": {
+      "type": "object",
+      "properties": {
+        "winningRecord": {
+          "$ref": "#/definitions/WinningRecords"
+        },
+        "award": {
+          "$ref": "#/definitions/PublicAwards"
+        }
+      },
+      "title": "WinningRecordsInfo"
+    },
+    "currentUserReq": {
+      "type": "object",
+      "properties": {
+        "passport": {
+          "type": "string"
+        },
+        "activityUuid": {
+          "type": "string"
+        }
+      },
+      "title": "currentUserReq"
+    },
+    "luckydrawReq": {
+      "type": "object",
+      "properties": {
+        "passport": {
+          "type": "string"
+        },
+        "activityUuid": {
+          "type": "string"
+        }
+      },
+      "title": "luckydrawReq"
+    },
+    "queryReq": {
+      "type": "object",
+      "properties": {
+        "passport": {
+          "type": "string"
+        },
+        "activityUuid": {
+          "type": "string"
+        }
+      },
+      "title": "queryReq"
+    }
+  },
+  "securityDefinitions": {
+    "apiKey": {
+      "type": "apiKey",
+      "description": "Enter JWT Bearer token **_only_**",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "apiKey": []
+    }
+  ]
+}
