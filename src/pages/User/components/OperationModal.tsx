@@ -51,7 +51,6 @@ const OperationModal: FC<OperationModalProps> = (props) => {
     prizeOptionsMark.current = new Date().valueOf()
     const markNumber = prizeOptionsMark.current
     const res = (await getAwardsEnums({ parentId: activityId })()).data as Enum[]
-    console.log(res)
     if (markNumber === prizeOptionsMark.current) { //表示是最新请求
       setPrizeOptions(res) //更新产品选项
     }
@@ -157,6 +156,7 @@ const OperationModal: FC<OperationModalProps> = (props) => {
         width="md"
         name="count"
         label='已抽次数'
+        initialValue={current?.count||0}
       />
       <ProFormDigit
         rules={[
@@ -168,6 +168,7 @@ const OperationModal: FC<OperationModalProps> = (props) => {
         width="md"
         name="total"
         label='可抽次数'
+        initialValue={current?.total||0}
       />
     </ModalForm>
   );

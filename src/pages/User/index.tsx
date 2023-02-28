@@ -376,7 +376,8 @@ const UsersList: React.FC = () => {
   };
 
   const expandedRowRender = (detail: UserDetail) => {
-    const list = detail.availableAwards ?? [];
+    let list = detail.availableAwards ?? [];
+    list = list.filter((item: Awards) => !!item);
     const data = list.map<PrizeDetailInfo>((award, index) => {
       return {
         index: index,

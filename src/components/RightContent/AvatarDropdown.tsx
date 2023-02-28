@@ -60,16 +60,16 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
   const { initialState, setInitialState } = useModel('@@initialState');
 
   const onMenuClick = useCallback(
-    (event: MenuInfo) => {
+    async (event: MenuInfo) => {
       const { key } = event;
       if (key === 'logout') {
-        flushSync(() => {
-          setInitialState((s) => ({ ...s, currentUser: undefined }));
+        await flushSync(async () => {
+          await setInitialState((s) => ({ ...s, currentUser: undefined }));
         });
-        loginOut();
-        return;
+        await loginOut();
+        return
       }
-      history.push(`/account/${key}`);
+      history.push(`/${key}`);
     },
     [setInitialState],
   );
@@ -99,20 +99,20 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
   const menuItems = [
     ...(menu
       ? [
-          {
-            key: 'center',
-            icon: <UserOutlined />,
-            label: '个人中心',
-          },
-          {
-            key: 'settings',
-            icon: <SettingOutlined />,
-            label: '个人设置',
-          },
-          {
-            type: 'divider' as const,
-          },
-        ]
+        {
+          key: 'center',
+          icon: <UserOutlined />,
+          label: '个人中心',
+        },
+        {
+          key: 'settings',
+          icon: <SettingOutlined />,
+          label: '个人设置',
+        },
+        {
+          type: 'divider' as const,
+        },
+      ]
       : []),
     {
       key: 'logout',

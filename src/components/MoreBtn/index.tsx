@@ -13,25 +13,19 @@ import { useAccess } from 'umi';
 type ActionHandler = (() => void | boolean) | (() => Promise<void | boolean>)
 
 type MoreBtnProps = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // onEdit: <Type>(current: Type) => void;
-    onEdit: ActionHandler;
-    onDel: ActionHandler;
+    onEdit: ActionHandler | undefined;
+    onDel: ActionHandler | undefined;
     setHide: ((hide: boolean) => void) | undefined;
-    // formRef: React.MutableRefObject<ProFormInstance<any> | undefined>
-    // editAndDelete: <Type>(key: string | number, currentItem: Type)=>void;
-    // record: Type;
 }
 
 const MoreActionBtn: React.FC<MoreBtnProps> = (props) => {
     const { onEdit, onDel, setHide } = props;
 
-    const operationList = [
-    ]
+    const operationList = []
 
     const access = useAccess();
 
-    if (access.canEdit) {
+    if (access.canEdit && onEdit) {
         operationList.push({
             key: 'edit',
             itemIcon: <EditTwoTone twoToneColor='#245cfc' />,
@@ -39,7 +33,7 @@ const MoreActionBtn: React.FC<MoreBtnProps> = (props) => {
         })
     }
 
-    if (access.canDel) {
+    if (access.canDel && onDel) {
         operationList.push({
             key: 'delete',
             itemIcon: <DeleteTwoTone twoToneColor='#ce2e3f' />,
@@ -53,16 +47,16 @@ const MoreActionBtn: React.FC<MoreBtnProps> = (props) => {
 
     const editAndDelete = async (key: string | number) => {
         // let ok:boolean|void = false
-        if (key === 'edit') {
-            await onEdit();
-        } else if (key === 'delete') {
+        if (key === 'edit' && onEdit) {
+            onEdit()
+        } else if (key === 'delete' && onDel) {
             Modal.confirm({
                 title: '删除警告',
                 content: '确定删除该条数据吗？',
                 okText: '确认',
                 cancelText: '取消',
                 onOk: async () => {
-                   await onDel();
+                    await onDel();
                 },
             });
         }
