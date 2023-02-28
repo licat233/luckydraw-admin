@@ -9,6 +9,7 @@ import defaultSettings from '../config/defaultSettings';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
 import { errorConfig } from './requestErrorConfig';
 import { currentAdminer as queryCurrentUser } from './services/swagger/luckydraw';
+import { AccessList } from './services/swagger/data';
 const isDev = process.env.NODE_ENV === 'development';
 /* The path to the login page. */
 const loginPath = '/login';
@@ -28,19 +29,8 @@ export async function getInitialState(): Promise<{
         skipErrorHandler: true,
       });
       const info = msg.data as API.CurrentUser;
-      if (info.isSuper>0) {
-        info.name = "超级管理员";
-      }else{
-        if (info.access === "normal") {
-         info.name = "职员";
-        }else if (info.access === "admin") {
-          info.name = "主管";
-        }
-      }
-      if (!info.name) {
-        info.name = "无名宝";
-      }
-      if (!info.avatar){
+      info.name = AccessList[info.access ?? ""] || info.name;
+      if (!info.avatar) {
         info.avatar = "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"
       }
       return info;
@@ -109,11 +99,11 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     ],
     links: isDev
       ? [
-          <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
-            <LinkOutlined />
-            <span>OpenAPI 文档</span>
-          </Link>,
-        ]
+        <Link key="openapi" to="/umi/plugin/openapi" target="_blank">
+          <LinkOutlined />
+          <span>OpenAPI 文档</span>
+        </Link>,
+      ]
       : [],
     menuHeaderRender: undefined,
     // 自定义 403 页面

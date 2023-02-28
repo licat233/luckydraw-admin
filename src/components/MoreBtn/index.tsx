@@ -6,6 +6,7 @@
  * @Description:
  */
 import { DeleteTwoTone, DownOutlined, EditTwoTone } from "@ant-design/icons";
+// import { ProFormInstance } from "@ant-design/pro-components";
 import { Dropdown, Modal } from "antd";
 import { useAccess } from 'umi';
 
@@ -17,6 +18,7 @@ type MoreBtnProps = {
     onEdit: ActionHandler;
     onDel: ActionHandler;
     setHide: ((hide: boolean) => void) | undefined;
+    // formRef: React.MutableRefObject<ProFormInstance<any> | undefined>
     // editAndDelete: <Type>(key: string | number, currentItem: Type)=>void;
     // record: Type;
 }
@@ -50,8 +52,9 @@ const MoreActionBtn: React.FC<MoreBtnProps> = (props) => {
     }
 
     const editAndDelete = async (key: string | number) => {
+        // let ok:boolean|void = false
         if (key === 'edit') {
-            onEdit();
+            await onEdit();
         } else if (key === 'delete') {
             Modal.confirm({
                 title: '删除警告',
@@ -59,7 +62,7 @@ const MoreActionBtn: React.FC<MoreBtnProps> = (props) => {
                 okText: '确认',
                 cancelText: '取消',
                 onOk: async () => {
-                    onDel();
+                   await onDel();
                 },
             });
         }

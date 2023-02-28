@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 从URL获取文件名和文件路径
-URL1="http://localhost:8888/api/static/luckydraw.ts"
-URL2="http://localhost:8888/api/static/luckydrawComponents.ts"
-URL3="http://localhost:8888/api/static/swagger.json"
+URL1="http://localhost:7878/api/static/luckydraw.ts"
+URL2="http://localhost:7878/api/static/luckydrawComponents.ts"
+URL3="http://localhost:7878/api/static/swagger.json"
 # FILENAME1=$(basename1 "$URL1")
 # FILENAME2=$(basename2 "$URL2")
 # DIRECTORY="."

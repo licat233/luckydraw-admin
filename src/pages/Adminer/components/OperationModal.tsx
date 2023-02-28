@@ -7,6 +7,8 @@ import {
 } from '@ant-design/pro-form';
 import styles from '../style.less';
 import { Adminer as BasicListItemDataType } from '@/services/swagger/luckydraw';
+import { ProFormSelect } from '@ant-design/pro-components';
+import { AccessList } from '@/services/swagger/data';
 
 type OperationModalProps = {
   done: boolean;
@@ -77,6 +79,18 @@ const OperationModal: FC<OperationModalProps> = (props) => {
         width="md"
         name="password"
         label="密码"
+      />
+      <ProFormSelect
+        rules={[
+          {
+            required: true,
+            message: '必填项',
+          },
+        ]}
+        width="md"
+        name="access"
+        label='身份'
+        valueEnum={AccessList}
       />
       <ProFormSwitch
         // options={[{ label: "否", value: 0 }, { label: "是", value: 1 }]}

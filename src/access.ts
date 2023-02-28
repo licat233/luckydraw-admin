@@ -15,8 +15,9 @@ export default function access(initialState: { currentUser?: API.CurrentUser } |
   }
   return {
     canAdmin: validateAccess('superAdmin'),
-    canEdit: validateAccess('superAdmin', 'admin', 'normal'),
+    canEdit: validateAccess('superAdmin', 'admin', 'user'),
     canDel: validateAccess('superAdmin', 'admin'),
-    canNew: validateAccess('superAdmin', 'admin', 'normal'),
+    canNew: validateAccess('superAdmin', 'admin', 'user'),
+    canRead: validateAccess('superAdmin', 'admin', 'user', 'visitor'),
   };
 }

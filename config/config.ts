@@ -6,9 +6,9 @@ import proxy from './proxy';
 import routes from './routes';
 const { REACT_APP_ENV = 'dev' } = process.env;
 const isDev = process.env.NODE_ENV === 'development';
-let baseUrl = "http://localhost:8888"
+let baseUrl = "http://localhost:7878"
 if (!isDev) {
-  baseUrl = "/"
+  baseUrl = "https://api.lzy.pub"
 }
 export default defineConfig({
   /**

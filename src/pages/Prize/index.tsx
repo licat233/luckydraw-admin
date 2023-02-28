@@ -94,6 +94,15 @@ const PrizeList: React.FC = () => {
     setCurrent(item);
   };
 
+  const handleDel = async (id: number | undefined) => {
+    if (typeof id === 'undefined') return;
+    const ok = await handleRemove(id);
+    //刷新列表
+    if (actionRef.current && ok) {
+      actionRef.current.reload();
+    }
+  }
+
   const [hideAction, setHideAction] = useState<boolean>(false);
 
   const columns: ProColumns<Item>[] = [
@@ -190,7 +199,7 @@ const PrizeList: React.FC = () => {
       width: 80,
       hideInTable: hideAction,
       render: (_, record) => [
-        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleRemove(record.id)} />,
+        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleDel(record.id)} />,
       ]
     },
   ];

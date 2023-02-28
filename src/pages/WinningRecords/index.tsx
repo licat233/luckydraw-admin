@@ -6,7 +6,7 @@ import {
   ProTable,
 } from '@ant-design/pro-components';
 import '@umijs/max';
-import { Button, Drawer,  message } from 'antd';
+import { Button, Drawer, message } from 'antd';
 import React, { useRef, useState } from 'react';
 import { addWinningRecords as add, delWinningRecords as del, getActivityEnums, getAwardsEnums, getUsersEnums, getWinningRecordsList as list, putWinningRecords as put } from '@/services/swagger/luckydraw';
 import { WinningRecordsDetail, AddWinningRecordsReq as AddReq, PutWinningRecordsReq as PutReq, GetWinningRecordsListReqParams as Params, Users, Activity, Awards, WinningRecords, Enum } from "@/services/swagger/luckydrawComponents";
@@ -61,9 +61,9 @@ const handleUpdate = async (record: PutReq) => {
  * @param id
  */
 
-const handleRemove = async (id: number|undefined) => {
+const handleRemove = async (id: number | undefined) => {
   const hide = message.loading('正在删除...');
-  if(!id) return true;
+  if (!id) return true;
   if (typeof id === 'undefined') return true;
 
   try {
@@ -242,9 +242,16 @@ const WinningRecordsList: React.FC = () => {
     setCurrentDetails(item)
   };
 
+  const handleDel = async (id: number | undefined) => {
+    const ok = await handleRemove(id);
+    //刷新列表
+    if (actionRef.current && ok) {
+      actionRef.current.reload();
+    }
+  }
 
   const [hideAction, setHideAction] = useState<boolean>(false);
-  const columns: ProColumns<WinningRecordsDetail>[] = [
+  const columns: ProColumns<WinningRecordsDetail>[]  = [
     {
       title: 'ID',
       dataIndex: 'id',
@@ -365,12 +372,10 @@ const WinningRecordsList: React.FC = () => {
       valueType: 'option',
       hideInTable: hideAction,
       render: (_, record) => [
-        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleRemove(record.winningRecord?.id)} />,
+        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleDel(record.winningRecord?.id)} />,
       ]
     },
   ];
-
-
 
   const handleDone = () => {
     setDone(false);
@@ -379,7 +384,7 @@ const WinningRecordsList: React.FC = () => {
     setCurrentDetails(undefined);
   };
 
-  const handleSubmit = async (record: AddReq & PutReq ): Promise<boolean> => {
+  const handleSubmit = async (record: AddReq & PutReq): Promise<boolean> => {
     const method = record.id ? 'update' : 'add';
     let ok = false
     if (method === 'update') {
@@ -400,7 +405,7 @@ const WinningRecordsList: React.FC = () => {
       <ProTable<WinningRecordsDetail, Params>
         headerTitle={'中奖记录列表'}
         actionRef={actionRef}
-        rowKey={current => current.winningRecord?.id??globalKey++}
+        rowKey={current => current.winningRecord?.id ?? globalKey++}
         search={{}}
         toolBarRender={() => [
           <Access

@@ -16,7 +16,7 @@ import { Input, message, Tabs } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import React, { useEffect, useState } from 'react';
 import { flushSync } from 'react-dom';
-import Settings from '../../../../config/defaultSettings';
+import Settings from '../../../config/defaultSettings';
 import styles from './index.less';
 // const LoginMessage: React.FC<{
 //   content: string;
@@ -145,8 +145,6 @@ const Login: React.FC = () => {
           subTitle={'幸运抽奖管理后台'}
           initialValues={{
             autoLogin: false,
-            username: 'admin',
-            password: '12345',
           }}
           form={form}
           onFinish={async (values) => {

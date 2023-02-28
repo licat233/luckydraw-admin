@@ -34,7 +34,7 @@ declare namespace API {
     access: string;
   };
 
-  type BaseResp  = {
+  type BaseResp = {
     status: boolean // 响应状态
     success: boolean // 响应状态，用于对接umijs
     message?: string // 给予的提示信息

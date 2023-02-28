@@ -10,7 +10,7 @@
  * @doc https://umijs.org/docs/guides/proxy
  */
 
-let target = "http://localhost:8888"
+let target = "http://localhost:7878"
 export default {
   // 如果需要自定义本地开发服务器  请取消注释按需调整
   dev: {

@@ -220,6 +220,14 @@ const UsersList: React.FC = () => {
     setCurrent(item);
   };
 
+  const handleDel = async (id: number | undefined) => {
+    const ok = await handleRemove(id);
+    //刷新列表
+    if (actionRef.current && ok) {
+      actionRef.current.reload();
+    }
+  }
+
   const renderAvailableAwards = (data: Awards[]) => {
     if (!data || data.length === 0) return ""
     return data.map((item: Awards) => {
@@ -339,7 +347,7 @@ const UsersList: React.FC = () => {
       key: 'index',
       hideInTable: hideAction,
       render: (_, record) => [
-        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record.user)} onDel={() => handleRemove(record.user?.id)} />,
+        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record.user)} onDel={() => handleDel(record.user?.id)} />,
       ]
     },
   ];

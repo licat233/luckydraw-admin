@@ -1,4 +1,4 @@
-import {PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import {
   PageContainer,
@@ -13,6 +13,7 @@ import { Adminer as Item, AddAdminerReq as AddReq, PutAdminerReq as PutReq, GetA
 import OperationModal from './components/OperationModal';
 import MoreBtn from '@/components/MoreBtn';
 import { Access, useAccess } from '@umijs/max';
+import { AccessList } from '@/services/swagger/data';
 
 /**
  * @en-US Add node
@@ -78,7 +79,6 @@ const handleRemove = async (id: number) => {
   }
 };
 
-
 const AdminerList: React.FC = () => {
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const actionRef = useRef<ActionType>();
@@ -98,6 +98,15 @@ const AdminerList: React.FC = () => {
     setVisible(true);
     setCurrent(item);
   };
+
+  const handleDel = async (id: number | undefined) => {
+    if (typeof id === 'undefined') return;
+    const ok = await handleRemove(id);
+    //刷新列表
+    if (actionRef.current && ok) {
+      actionRef.current.reload();
+    }
+  }
 
   const [hideAction, setHideAction] = useState<boolean>(false);
 
@@ -133,6 +142,12 @@ const AdminerList: React.FC = () => {
       valueType: 'password',
     },
     {
+      title: '身份',
+      dataIndex: 'access',
+      valueType: 'select',
+      valueEnum: AccessList
+    },
+    {
       title: '超管?',
       dataIndex: 'isSuper',
       sorter: true,
@@ -154,7 +169,7 @@ const AdminerList: React.FC = () => {
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => [
-        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleRemove(record.id)} />,
+        <MoreBtn key="more" setHide={setHideAction} onEdit={() => showEditModal(record)} onDel={() => handleDel(record.id)} />,
       ]
     },
   ];
@@ -180,6 +195,8 @@ const AdminerList: React.FC = () => {
     }
     return ok
   };
+
+
 
   const access = useAccess();
   return (
@@ -209,7 +226,7 @@ const AdminerList: React.FC = () => {
             </Button>
           </Access>,
         ]}
-        request={async (params)=>list(params)()}
+        request={async (params) => list(params)()}
         columns={columns}
         dateFormatter="number"
       />
